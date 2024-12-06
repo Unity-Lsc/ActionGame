@@ -75,3 +75,6 @@ crashlytics-build.properties
 
 # AssetBundle directory
 AssetBundles/
+
+# IDEA directory
+*.idea

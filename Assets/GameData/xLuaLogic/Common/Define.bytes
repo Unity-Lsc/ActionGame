@@ -1,0 +1,20 @@
+print('启动了Define.lua');
+
+--把常用的Unity相关的命名空间添加进来
+UnityEngine = CS.UnityEngine;
+UI = UnityEngine.UI;
+WWW = CS.UnityEngine.WWW;
+GameObject = CS.UnityEngine.GameObject;
+Color = CS.UnityEngine.Color;
+Vector3 = CS.UnityEngine.Vector3;
+Vector2 = CS.UnityEngine.Vector2;
+RectTransform = CS.UnityEngine.RectTransform;
+Transform = CS.UnityEngine.Transform;
+
+Button = UI.Button;
+Text = UI.Text;
+Toggle = UI.Toggle;
+ToggleGroup= UI.ToggleGroup;
+
+SpriteFramework = CS.SpriteFramework;
+GameEntry = CS.SpriteFramework.GameEntry;

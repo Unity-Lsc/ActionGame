@@ -1,0 +1,18 @@
+SystemEventId = {
+	---加载表格完毕
+	LoadDataTableComplete = 1001;
+	---加载单一表格完毕
+	LoadOneDataTableComplete = 1002;
+	---加载Lua表格完毕
+	LoadLuaDataTableComplete = 1003;
+	---加载进度条更新
+	LoadingProgressChange = 1004;
+
+	-----------------------------------------------业务逻辑相关的事件------------------------------------------------
+	--- 100开头 10001(100表示模块,01表示编号)
+
+	---登录
+	UILogin = 10001;
+	---登出
+	UILogout = 10002;
+}

@@ -1,0 +1,3 @@
+..\..\..\Tables
+..\..\..\..\Assets\GameData\DataTable\
+..\..\..\..\Assets\SpriteScript\Data\DataTable\Create\
