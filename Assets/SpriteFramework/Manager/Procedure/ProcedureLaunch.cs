@@ -8,12 +8,9 @@ namespace SpriteFramework
 
         public override void OnEnter() {
             base.OnEnter();
-            //加载数据表
-            GameEntry.DataTable.LoadDataTable();
-            //切换进入主场景
-            GameEntry.Scene.LoadSceneAsync("Main", () => {
-                GameEntry.UI.OpenUIFormLua("UIMainCityForm");
-            });
+
+            GameEntry.Procedure.ChangeState(ProcedureState.CheckVersion);
+            
         }
 
         public override void OnUpdate() {

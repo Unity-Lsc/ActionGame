@@ -1,0 +1,12 @@
+function Awake()
+	print("UICreateRoleForm Awake");
+end
+
+function Start()
+	btnEnterGame.onClick:AddListener(function()
+		print("点击进入游戏");
+		print("输入框的内容:" .. inputName.text);
+		GameEntry.Procedure:ChangeState(5);
+		self:Close();
+	end)
+end

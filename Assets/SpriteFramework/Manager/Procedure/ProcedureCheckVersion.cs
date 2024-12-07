@@ -8,6 +8,7 @@ namespace SpriteFramework
 
         public override void OnEnter() {
             base.OnEnter();
+            GameEntry.Procedure.ChangeState(ProcedureState.Preload);
         }
 
         public override void OnUpdate() {

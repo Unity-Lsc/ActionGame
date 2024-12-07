@@ -49,6 +49,7 @@ namespace SpriteFramework
 
             var obj = new GameObject("AudioManager");
             obj.transform.SetParent(GameEntry.Instance.transform);
+            obj.AddComponent<AudioListener>();
             for (int i = 0; i < MAX_SOUND_NUM; i++) {
                 var source = obj.AddComponent<AudioSource>();
                 _audioSourceList.Add(source);

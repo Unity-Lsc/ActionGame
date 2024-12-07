@@ -20,5 +20,6 @@ function OnEnable()
 end
 
 function OnDisable()
+	imgSlider.fillAmount = 0;
 	GameEntry.Event:RemoveListener(SystemEventId.LoadingProgressChange, OnLoadingProgressChange);
 end

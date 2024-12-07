@@ -8,6 +8,10 @@ namespace SpriteFramework
 
         public override void OnEnter() {
             base.OnEnter();
+            //加载数据表
+            GameEntry.DataTable.LoadDataTable();
+
+            GameEntry.Procedure.ChangeState(ProcedureState.SelectRole);
         }
 
         public override void OnUpdate() {

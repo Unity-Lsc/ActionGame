@@ -19,6 +19,10 @@ namespace SpriteFramework
         /// </summary>
         Preload,
         /// <summary>
+        /// 选择角色
+        /// </summary>
+        SelectRole,
+        /// <summary>
         /// 登录
         /// </summary>
         Login,
@@ -68,12 +72,13 @@ namespace SpriteFramework
         }
 
         public void Init() {
-            FsmState<ProcedureManager>[] states = new FsmState<ProcedureManager>[5];
+            FsmState<ProcedureManager>[] states = new FsmState<ProcedureManager>[6];
             states[0] = new ProcedureLaunch();
             states[1] = new ProcedureCheckVersion();
             states[2] = new ProcedurePreload();
-            states[3] = new ProcedureLogin();
-            states[4] = new ProcedureMain();
+            states[3] = new ProcedureSelectRole();
+            states[4] = new ProcedureLogin();
+            states[5] = new ProcedureMain();
 
             m_CurFsm = GameEntry.Fsm.Create(this, states);
         }

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpriteFramework
@@ -34,9 +33,9 @@ namespace SpriteFramework
         }
 
         public void Dispose() {
-            LocalizationDBModel.Clear();
+            LocalizationDBModel?.Clear();
 
-            DTSysUIFormDBModel.Clear();
+            DTSysUIFormDBModel?.Clear();
         }
 
     }

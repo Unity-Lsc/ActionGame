@@ -10,7 +10,7 @@ namespace SpriteFramework.Editor
     public class Menu
     {
 
-        [MenuItem("工具/设置")]
+        [MenuItem("Tools/设置")]
         public static void Settings() {
 
             SettingsWindow window = EditorWindow.GetWindow<SettingsWindow>();
@@ -19,7 +19,7 @@ namespace SpriteFramework.Editor
 
         }
 
-        [MenuItem("工具/打开persisdentDataPath")]
+        [MenuItem("Tools/打开persisdentDataPath")]
         public static void AssetBundleOpenPersisdentDataPath() {
             string outPath = Application.persistentDataPath;
             if (!Directory.Exists(outPath)) {

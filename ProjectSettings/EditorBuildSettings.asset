@@ -8,5 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameData/Scenes/Main.unity
     guid: 530559565ee53744a932dfc44ddfbc89
+  - enabled: 1
+    path: Assets/GameData/Scenes/SelectRole.unity
+    guid: a49b4427f2e8b4e44a5a3dc0dc9014f1
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

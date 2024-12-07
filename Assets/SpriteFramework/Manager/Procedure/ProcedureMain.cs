@@ -8,6 +8,11 @@ namespace SpriteFramework
 
         public override void OnEnter() {
             base.OnEnter();
+            //切换进入主场景
+            GameEntry.Scene.LoadSceneAsync("Main", ()=> {
+                UnityUtils.LoadPrefabClone(SFConstDefine.RoleRoot + "1001");
+            });
+            
         }
 
         public override void OnUpdate() {

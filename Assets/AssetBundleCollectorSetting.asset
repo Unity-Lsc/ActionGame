@@ -74,13 +74,29 @@ MonoBehaviour:
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 
-    - GroupName: UIPrefab
-      GroupDesc: "UI\u9884\u5236\u4F53"
+    - GroupName: Prefab
+      GroupDesc: "\u9884\u5236\u4F53"
       AssetTags: 
       ActiveRuleName: EnableGroup
       Collectors:
       - CollectPath: Assets/GameData/Prefabs/UI
         CollectorGUID: f2c571a0c0ed81443a834b3bd192c7f4
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/GameData/Prefabs/Hero
+        CollectorGUID: a44b0011f4c9a054d8935be39f28d9f1
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/GameData/Prefabs/Monster
+        CollectorGUID: e30cf33a75908e94d84928bca5658d46
         CollectorType: 0
         AddressRuleName: AddressByFileName
         PackRuleName: PackDirectory

@@ -824,7 +824,10 @@ PlayerSettings:
   webGLMemoryGeometricGrowthStep: 0.2
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Android: DEBUG_MODE;DEBUG_LOG_NORMAL;DEBUG_LOG_NECESSARY;DEBUG_LOG_PROTO;DEBUG_LOG_WARNING;DEBUG_LOG_ERROR
+    Standalone: DEBUG_MODE;DEBUG_LOG_NORMAL;DEBUG_LOG_NECESSARY;DEBUG_LOG_PROTO;DEBUG_LOG_WARNING;DEBUG_LOG_ERROR;ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1
+    iPhone: DEBUG_MODE;DEBUG_LOG_NORMAL;DEBUG_LOG_NECESSARY;DEBUG_LOG_PROTO;DEBUG_LOG_WARNING;DEBUG_LOG_ERROR
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

@@ -35,6 +35,16 @@ namespace SpriteFramework
         public const string PrefabRoot = "Assets/GameData/Prefabs/";
 
         /// <summary>
+        /// 角色的根路径
+        /// </summary>
+        public const string RoleRoot = PrefabRoot + "Hero/";
+
+        /// <summary>
+        /// 怪物的根路径
+        /// </summary>
+        public const string MonsterRoot = PrefabRoot + "Monster/";
+
+        /// <summary>
         /// UI窗体的根路径
         /// </summary>
         public const string UIPrefabRoot = "Assets/GameData/Prefabs/UI/";
