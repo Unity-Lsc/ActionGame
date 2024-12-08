@@ -72,6 +72,10 @@ public class SkillCharacterConfig
 
             m_LastRunTime = 0;
             m_IsPlaying = true;
+
+
+            SkillEditorWindow window = EditorWindow.GetWindow<SkillEditorWindow>();
+            window?.StartPlaySkill();
         }
     }
 
@@ -79,6 +83,7 @@ public class SkillCharacterConfig
     [Button("暂停", ButtonSizes.Large)]
     public void Pause() {
         m_IsPlaying = false;
+        EditorWindow.GetWindow<SkillEditorWindow>().PausePlaySkill();
     }
 
     [ButtonGroup("按钮数组")]
@@ -105,6 +110,7 @@ public class SkillCharacterConfig
             //动画播放完成
             if(AnimProgress == 100) {
                 m_IsPlaying = false;
+                EditorWindow.GetWindow<SkillEditorWindow>()?.EndPlaySkill();
             }
 
             //触发窗口聚焦回调,刷新窗口

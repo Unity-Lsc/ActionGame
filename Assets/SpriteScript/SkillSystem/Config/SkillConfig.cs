@@ -15,7 +15,7 @@ public class SkillConfig
     //是否显示技能引导
     private bool m_IsShowSkillGuide = false;
 
-    [LabelText("技能图标"), LabelWidth(12f), PreviewField(70, ObjectFieldAlignment.Left), SuffixLabel("技能图标")]
+    [AssetList][LabelText("技能图标"), PreviewField(70, ObjectFieldAlignment.Left), SuffixLabel("技能图标", true)]
     public Sprite SkillIcon;
 
     //************************************************技能参数************************************************
