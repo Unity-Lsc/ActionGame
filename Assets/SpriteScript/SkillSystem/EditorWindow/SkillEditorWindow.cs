@@ -24,23 +24,34 @@ public class SkillEditorWindow : OdinEditorWindow
 
 #if UNITY_EDITOR
 
+    private static SkillEditorWindow m_Instance;
+
     //是否在播放技能
     private bool m_IsPlayingSkill = false;
 
     [MenuItem("Skill/技能编辑器")]
     public static SkillEditorWindow ShowWindow() {
-        var window = GetWindowWithRect<SkillEditorWindow>(new Rect(0, 0, 1000, 600));
-        window.titleContent = new GUIContent("技能编辑器窗口");
-        return window;
+        if(m_Instance == null) {
+            m_Instance = GetWindowWithRect<SkillEditorWindow>(new Rect(0, 0, 1000, 600));
+            m_Instance.titleContent = new GUIContent("技能编辑器窗口");
+        }
+        return m_Instance;
+    }
+
+    public static SkillEditorWindow GetSkillEditorWindow() {
+        return m_Instance;
     }
 
     /// <summary>
     /// 获取编辑器下角色的位置
     /// </summary>
     public static Vector3 GetCharacterPos() {
-        SkillEditorWindow window = GetWindow<SkillEditorWindow>();
-        if(window != null) {
-            return window.Character.SkillCharacter.transform.position;
+        if (!HasOpenInstances<SkillEditorWindow>()) {
+            return Vector3.zero;
+        }
+
+        if (m_Instance != null && m_Instance.Character.SkillCharacter != null) {
+            return m_Instance.Character.SkillCharacter.transform.position;
         }
         return Vector3.zero;
     }

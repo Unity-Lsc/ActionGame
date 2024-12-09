@@ -110,7 +110,7 @@ public class SkillCharacterConfig
             //动画播放完成
             if(AnimProgress == 100) {
                 m_IsPlaying = false;
-                EditorWindow.GetWindow<SkillEditorWindow>()?.EndPlaySkill();
+                SkillEditorWindow.GetSkillEditorWindow()?.EndPlaySkill();
             }
 
             //触发窗口聚焦回调,刷新窗口
