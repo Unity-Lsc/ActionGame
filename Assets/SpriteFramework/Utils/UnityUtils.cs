@@ -99,4 +99,16 @@ public class UnityUtils
         return null;
     }
 
+    /// <summary>
+    /// 克隆物体并进行初始化
+    /// </summary>
+    /// <param name="prefab">要克隆的预制体</param>
+    public static GameObject InstantiateObj(GameObject prefab) {
+        GameObject obj = GameObject.Instantiate(prefab);
+        obj.transform.localPosition = Vector3.zero;
+        obj.transform.localScale = Vector3.one;
+        obj.transform.localRotation = Quaternion.identity;
+        return obj;
+    }
+
 }

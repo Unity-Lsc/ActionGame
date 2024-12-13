@@ -1,0 +1,8 @@
+
+
+function Start()
+	btnNormalAttack.onClick:AddListener(function()
+		local roleLogic = CS.BattleManager.Instance.CurBattle.RoleLogicCtrl.RoleLogic;
+		roleLogic:ReleaseSkill(1001);
+	end)
+end

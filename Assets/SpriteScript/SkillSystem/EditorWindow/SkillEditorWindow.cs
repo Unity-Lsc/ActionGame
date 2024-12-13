@@ -1,8 +1,11 @@
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 /// <summary>
 /// 技能编辑器窗口
@@ -25,6 +28,14 @@ public class SkillEditorWindow : OdinEditorWindow
 #if UNITY_EDITOR
 
     private static SkillEditorWindow m_Instance;
+    public static SkillEditorWindow Instance {
+        get {
+            if (m_Instance == null) {
+                m_Instance = EditorWindow.GetWindow<SkillEditorWindow>();
+            }
+            return m_Instance;
+        }
+    }
 
     //是否在播放技能
     private bool m_IsPlayingSkill = false;
@@ -38,8 +49,22 @@ public class SkillEditorWindow : OdinEditorWindow
         return m_Instance;
     }
 
-    public static SkillEditorWindow GetSkillEditorWindow() {
-        return m_Instance;
+    /// <summary>
+    /// 保存数据
+    /// </summary>
+    public void SavaSkillData() {
+        SkillDataConfig.SaveSkillData(Character, Skill, DamageList, EffectList);
+        Close();
+    }
+
+    /// <summary>
+    /// 加载技能数据
+    /// </summary>
+    public void LoadSkillData(SkillDataConfig skillDataConfig) {
+        Character = skillDataConfig.CharacterCfg;
+        Skill = skillDataConfig.SkillCfg;
+        DamageList = skillDataConfig.DamageCfgList;
+        EffectList = skillDataConfig.EffectCfgList;
     }
 
     /// <summary>
@@ -59,11 +84,17 @@ public class SkillEditorWindow : OdinEditorWindow
     protected override void OnEnable() {
         base.OnEnable();
         EditorApplication.update += OnEditorUpdate;
+        foreach (var item in DamageList) {
+            item.OnInit();
+        }
     }
 
     protected override void OnDisable() {
         base.OnDisable();
         EditorApplication.update -= OnEditorUpdate;
+        foreach (var item in DamageList) {
+            item.OnRelease();
+        }
     }
 
     /// <summary>
@@ -71,6 +102,9 @@ public class SkillEditorWindow : OdinEditorWindow
     /// </summary>
     public void StartPlaySkill() {
         foreach (var item in EffectList) {
+            item.StartPlaySkill();
+        }
+        foreach (var item in DamageList) {
             item.StartPlaySkill();
         }
         m_LogicAccRunTime = 0;
@@ -86,6 +120,9 @@ public class SkillEditorWindow : OdinEditorWindow
         foreach (var item in EffectList) {
             item.PausePlaySkill();
         }
+        foreach (var item in DamageList) {
+            item.EndPlaySkill();
+        }
     }
 
     /// <summary>
@@ -93,6 +130,9 @@ public class SkillEditorWindow : OdinEditorWindow
     /// </summary>
     public void EndPlaySkill() {
         foreach (var item in EffectList) {
+            item.EndPlaySkill();
+        }
+        foreach (var item in DamageList) {
             item.EndPlaySkill();
         }
         m_LogicAccRunTime = 0;
@@ -145,6 +185,9 @@ public class SkillEditorWindow : OdinEditorWindow
 
     private void OnLogicFrameUpdate() {
         foreach (var item in EffectList) {
+            item.OnLogicFrameUpdate();
+        }
+        foreach (var item in DamageList) {
             item.OnLogicFrameUpdate();
         }
     }

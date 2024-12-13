@@ -136,9 +136,9 @@ namespace XLua
 		public override Delegate GetDelegateByType(Type type)
 		{
 		
-		    if (type == typeof(SpriteFramework.BaseAction))
+		    if (type == typeof(BaseAction))
 			{
-			    return new SpriteFramework.BaseAction(__Gen_Delegate_Imp0);
+			    return new BaseAction(__Gen_Delegate_Imp0);
 			}
 		
 		    if (type == typeof(UnityEngine.Events.UnityAction<bool>))
@@ -146,9 +146,9 @@ namespace XLua
 			    return new UnityEngine.Events.UnityAction<bool>(__Gen_Delegate_Imp1);
 			}
 		
-		    if (type == typeof(SpriteFramework.BaseAction<int, UnityEngine.GameObject>))
+		    if (type == typeof(BaseAction<int, UnityEngine.GameObject>))
 			{
-			    return new SpriteFramework.BaseAction<int, UnityEngine.GameObject>(__Gen_Delegate_Imp2);
+			    return new BaseAction<int, UnityEngine.GameObject>(__Gen_Delegate_Imp2);
 			}
 		
 		    if (type == typeof(Tutorial.CSCallLua.FDelegate))

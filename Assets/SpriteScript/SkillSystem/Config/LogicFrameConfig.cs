@@ -17,6 +17,6 @@ public class LogicFrameConfig
     /// <summary>
     /// 毫秒级的逻辑帧间隔 用来计算当前逻辑帧的累加时间
     /// </summary>
-    public const float LogicFrameIntervalMS = LogicFrameInterval * 1000;
+    public const int LogicFrameIntervalMS = (int)(LogicFrameInterval * 1000);
 
 }

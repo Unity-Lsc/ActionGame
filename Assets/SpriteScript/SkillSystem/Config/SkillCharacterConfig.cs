@@ -1,6 +1,9 @@
 using Sirenix.OdinInspector;
-using UnityEditor;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 /// <summary>
 /// 绘制技能编辑器中的Character区域
@@ -73,9 +76,7 @@ public class SkillCharacterConfig
             m_LastRunTime = 0;
             m_IsPlaying = true;
 
-
-            SkillEditorWindow window = EditorWindow.GetWindow<SkillEditorWindow>();
-            window?.StartPlaySkill();
+            SkillEditorWindow.Instance?.StartPlaySkill();
         }
     }
 
@@ -83,14 +84,21 @@ public class SkillCharacterConfig
     [Button("暂停", ButtonSizes.Large)]
     public void Pause() {
         m_IsPlaying = false;
-        EditorWindow.GetWindow<SkillEditorWindow>().PausePlaySkill();
+        SkillEditorWindow.Instance?.PausePlaySkill();
     }
 
     [ButtonGroup("按钮数组")]
     [Button("保存设置", ButtonSizes.Large)][GUIColor(0,1,0)]
     public void SaveSetting() {
-
+        if(SkillEditorWindow.Instance != null) {
+            SkillEditorWindow.Instance.SavaSkillData();
+        }
+        else {
+            Debug.LogError("未获取到SkillEditorWindow的实例!");
+        }
     }
+
+#if UNITY_EDITOR
 
     public void OnUpdate(System.Action progressCallback = null) {
         if (m_IsPlaying) {
@@ -110,7 +118,7 @@ public class SkillCharacterConfig
             //动画播放完成
             if(AnimProgress == 100) {
                 m_IsPlaying = false;
-                SkillEditorWindow.GetSkillEditorWindow()?.EndPlaySkill();
+                SkillEditorWindow.Instance?.EndPlaySkill();
             }
 
             //触发窗口聚焦回调,刷新窗口
@@ -135,5 +143,7 @@ public class SkillCharacterConfig
         LogicFrame = (int)(progressValue / LogicFrameConfig.LogicFrameInterval);
         m_TempAnimation.clip.SampleAnimation(m_TempCharacter, progressValue);
     }
+
+#endif
 
 }

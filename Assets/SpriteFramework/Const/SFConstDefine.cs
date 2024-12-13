@@ -59,5 +59,10 @@ namespace SpriteFramework
         /// </summary>
         public const string LuaScriptRoot = "Assets/GameData/xLuaLogic/";
 
+        /// <summary>
+        /// 技能配置数据的根路径
+        /// </summary>
+        public const string SkillConfigDataRoot = "Assets/GameData/SkillData/";
+
     }
 }

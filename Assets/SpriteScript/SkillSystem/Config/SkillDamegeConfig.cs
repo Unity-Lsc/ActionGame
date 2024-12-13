@@ -41,6 +41,8 @@ public class SkillDamegeConfig
     [TitleGroup("触发后续技能", "造成伤害后且技能释放完毕后触发的技能")]
     public int TriggerSkillId;
 
+#if UNITY_EDITOR
+
     //是否显示3D碰撞体
     private bool m_IsBox3D;
     //是否显示3D圆球碰撞体
@@ -49,6 +51,15 @@ public class SkillDamegeConfig
     private FixIntBoxCollider m_BoxCollider;
     //Sphere碰撞体
     private FixIntSphereCollider m_SphereCollider;
+    //当前的逻辑帧
+    private int m_CurLogicFrame = 0;
+
+    /// <summary>
+    /// Damage窗口初始化
+    /// </summary>
+    public void OnInit() {
+        CreateCollider();
+    }
 
     /// <summary>
     /// 碰撞检测类型发生变化
@@ -118,12 +129,48 @@ public class SkillDamegeConfig
     }
 
     /// <summary>
+    /// 开始播放技能特效
+    /// </summary>
+    public void StartPlaySkill() {
+        m_CurLogicFrame = 0;
+        DestroyCollider();
+    }
+
+    /// <summary>
+    /// 技能特效播放结束
+    /// </summary>
+    public void EndPlaySkill() {
+        DestroyCollider();
+    }
+
+    /// <summary>
+    /// 逻辑帧更新
+    /// </summary>
+    public void OnLogicFrameUpdate() {
+        if(m_CurLogicFrame == TriggerFrame) {
+            CreateCollider();
+        }else if(m_CurLogicFrame== EndFrame) {
+            DestroyCollider();
+        }
+        m_CurLogicFrame++;
+    }
+
+    /// <summary>
     /// 销毁碰撞体
     /// </summary>
     private void DestroyCollider() {
         m_BoxCollider?.OnRelease();
         m_SphereCollider?.OnRelease();
     }
+
+    /// <summary>
+    /// 释放Damage窗口
+    /// </summary>
+    public void OnRelease() {
+        DestroyCollider();
+    }
+
+#endif
 
 }
 

@@ -43,6 +43,7 @@ namespace SpriteFramework
         public static SocketManager Socket { get; private set; }
         public static UIManager UI { get; private set; }
         public static LuaManager Lua { get; private set; }
+        public static InputManager Input { get; private set; }
 
         public static GameEntry Instance { get; private set; }
 
@@ -72,6 +73,7 @@ namespace SpriteFramework
             Socket = new SocketManager();
             UI = new UIManager();
             Lua = new LuaManager();
+            Input = new InputManager();
 
             //在Init中, 模块之间可互相调用
             Audio.Init();
@@ -98,6 +100,9 @@ namespace SpriteFramework
             Socket.OnUpdate();
             UI.OnUpdate();
             Scene.OnUpdate();
+            Input.OnUpdate();
+
+            BattleManager.OnUpdate();
         }
 
         //private IEnumerator TestGame() {
@@ -176,6 +181,7 @@ namespace SpriteFramework
             Fsm.Dispose();
             Socket.Dispose();
             UI.Dispose();
+            Input.Dispose();
         }
 
     }

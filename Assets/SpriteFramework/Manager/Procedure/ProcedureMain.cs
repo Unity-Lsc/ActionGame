@@ -9,10 +9,11 @@ namespace SpriteFramework
         public override void OnEnter() {
             base.OnEnter();
             //切换进入主场景
-            GameEntry.Scene.LoadSceneAsync("Main", ()=> {
-                UnityUtils.LoadPrefabClone(SFConstDefine.RoleRoot + "1001");
-            });
-            
+            GameEntry.Scene.LoadSceneAsync("Main", OnLoadSceneComplete);
+        }
+
+        private void OnLoadSceneComplete() {
+            BattleManager.Instance.CreateBattle();
         }
 
         public override void OnUpdate() {
@@ -21,6 +22,7 @@ namespace SpriteFramework
 
         public override void OnLeave() {
             base.OnLeave();
+            BattleManager.Instance.OnRelease();
         }
 
         public override void OnDestroy() {

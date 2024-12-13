@@ -37,6 +37,9 @@ namespace XLua.CSObjectWrap
             translator.DelayWrapLoader(typeof(Tutorial.DerivedClassExtensions), TutorialDerivedClassExtensionsWrap.__Register);
         
         
+            translator.DelayWrapLoader(typeof(SpriteFramework.LuaBehaviour), SpriteFrameworkLuaBehaviourWrap.__Register);
+        
+        
             translator.DelayWrapLoader(typeof(UnityEngine.UI.Toggle), UnityEngineUIToggleWrap.__Register);
         
         
